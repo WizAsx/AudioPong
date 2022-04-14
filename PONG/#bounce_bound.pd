@@ -1,0 +1,53 @@
+#N canvas 26 619 1202 584 16;
+#X obj 67 394 impact~ hamimp obimp 2;
+#X msg 585 159 strike 0 -3;
+#X obj 585 98 bng 32 250 50 0 empty empty empty 17 7 0 10 -262144 -1
+-1;
+#X obj 585 61 inlet;
+#X obj 585 212 inertial hamimp;
+#X obj 586 252 r obimp;
+#X obj 649 185 r hamimp;
+#X obj 585 279 modal obimp 3 1;
+#X obj 283 457 *~ 1000;
+#X msg 67 291 stiffness \$1;
+#X msg 248 291 dissipation \$1;
+#X obj 436 122 vsl 15 128 1 4 0 0 empty shape1 empty 0 -9 0 10 -262144
+-1 -1 5292 1;
+#X obj 248 120 vsl 15 128 0 40 0 0 empty dissipation1 empty 0 -9 0
+10 -262144 -1 -1 6985 1;
+#X obj 67 121 vsl 15 128 1000 1e+008 1 0 empty stiffness1 empty 0 -9
+0 10 -262144 -1 -1 5300 1;
+#X floatatom 67 259 10 0 0 0 - - -;
+#X floatatom 248 258 5 0 0 0 - - -;
+#X floatatom 436 260 5 0 0 0 - - -;
+#X msg 436 293 shape \$1;
+#X obj 8 324 r imp;
+#X obj 439 355 vsl 15 128 1 10 0 0 empty empty empty 0 -9 0 10 -262144
+-1 -1 0 1;
+#X obj 283 486 *~ 10;
+#X msg 796 166 \; hamimp mass 0.01 \; hamimp fragmentSize 1 \; obimp
+freqs 500 1300 1700 \; obimp decays 1 0.5 0.25 \; obimp pickup 0 100
+100 100 \; obimp activeModes 3 \; obimp fragmentSize 1 \; imp contact0
+0 \; imp contact1 0 \; stiffness1 122122 \; dissipation1 22 \; shape1
+2.25 \;;
+#X obj 283 515 s~ paddle_bound;
+#X connect 0 1 8 0;
+#X connect 1 0 4 0;
+#X connect 2 0 21 0;
+#X connect 2 0 1 0;
+#X connect 3 0 2 0;
+#X connect 5 0 7 0;
+#X connect 6 0 4 0;
+#X connect 8 0 20 0;
+#X connect 9 0 0 0;
+#X connect 10 0 0 0;
+#X connect 11 0 16 0;
+#X connect 12 0 15 0;
+#X connect 13 0 14 0;
+#X connect 14 0 9 0;
+#X connect 15 0 10 0;
+#X connect 16 0 17 0;
+#X connect 17 0 0 0;
+#X connect 18 0 0 0;
+#X connect 19 0 20 1;
+#X connect 20 0 22 0;

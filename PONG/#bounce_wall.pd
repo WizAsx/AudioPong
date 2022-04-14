@@ -1,0 +1,57 @@
+#N canvas 721 567 1575 668 16;
+#X msg 1124 38 Sound Design Toolkit \; (C) 2001 - 2016 \; \; Project
+SOb - soundobject.org \; Project CLOSED - closed.ircam.fr \; Project
+NIW - soundobject.org/niw \; Project SkAT-VG - skatvg.eu;
+#X msg 67 291 stiffness \$1;
+#X msg 248 291 dissipation \$1;
+#X obj 436 122 vsl 15 128 1 4 0 0 empty shape empty 0 -9 0 10 -262144
+-1 -1 2117 1;
+#X obj 248 120 vsl 15 128 0 40 0 0 empty dissipation empty 0 -9 0 10
+-262144 -1 -1 317 1;
+#X obj 67 121 vsl 15 128 1000 1e+008 1 0 empty stiffness empty 0 -9
+0 10 -262144 -1 -1 10160 1;
+#X floatatom 67 259 10 0 0 0 - - -;
+#X floatatom 248 258 5 0 0 0 - - -;
+#X floatatom 436 260 5 0 0 0 - - -;
+#X text 394 364 Args: 1st obj ID \, 2nd obj ID \, n. of outlets;
+#X obj 67 365 impact~ hammerimp objectimp 2;
+#X text 25 98 Impact stiffness;
+#X text 201 98 Impact dissipation;
+#X msg 436 293 shape \$1;
+#X obj 649 185 r hammerimp;
+#X obj 586 252 r objectimp;
+#X obj 585 212 inertial hammerimp;
+#X obj 586 279 modal objectimp 3 1;
+#X obj 8 324 r imp;
+#X text 402 93 Contact shape;
+#X text 67 4 impact~ - Simulates an impact between two solid objects
+;
+#X obj 354 471 *~ 1000;
+#X obj 585 40 inlet;
+#X obj 353 505 s~ bball;
+#X msg 585 155 strike 0 -3;
+#X msg 868 184 \; hammerimp mass 0.01 \; hammerimp fragmentSize 1 \;
+objectimp decays 1 0.5 0.25 \; objectimp pickup 0 100 100 100 \; objectimp
+activeModes 3 \; objectimp fragmentSize 1 \; imp contact0 0 \; imp
+contact1 0 \; stiffness 1e+007 \; dissipation 1 \; shape 1.5 \;;
+#X msg 585 104 bang \; objectimp freqs \$1 1300 1700 \;;
+#X obj 585 72 expr 500+($i1);
+#X connect 1 0 10 0;
+#X connect 2 0 10 0;
+#X connect 3 0 8 0;
+#X connect 4 0 7 0;
+#X connect 5 0 6 0;
+#X connect 6 0 1 0;
+#X connect 7 0 2 0;
+#X connect 8 0 13 0;
+#X connect 10 1 21 0;
+#X connect 13 0 10 0;
+#X connect 14 0 16 0;
+#X connect 15 0 17 0;
+#X connect 18 0 10 0;
+#X connect 21 0 23 0;
+#X connect 22 0 27 0;
+#X connect 24 0 16 0;
+#X connect 26 0 25 0;
+#X connect 26 0 24 0;
+#X connect 27 0 26 0;
